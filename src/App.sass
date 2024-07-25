@@ -1,0 +1,268 @@
+@function px-to-rem($size_width_px, $root-font-size: 16px)
+  $size-width-rem: calc($size_width_px / $root-font-size)
+
+  @return $size-width-rem * 1rem
+
+@function px-to-em($size_width_px, $root-font-size: 16px)
+  $size-width-em: calc($size_width_px / $root-font-size)
+  
+  @return $size-width-em * 1em
+
+$header-height: 65px
+
+$logo-width: 31.31px
+
+html
+  width: 100%
+
+body
+  width: 100%
+  margin: 0
+  font-family: Karla
+
+h1, h2 
+  margin: 0
+
+.header
+  width: 100%
+  color: white
+  background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%)
+
+  display: flex
+  align-items: center
+  justify-content: space-between
+  box-sizing: border-box
+
+  padding: 15px
+
+  .logo
+    display: flex
+    gap: 7px
+    justify-content: space-between
+    align-items: center
+
+    h1
+      font-size: px_to_rem(14px)
+      line-height: px_to_em(25px, 14px)
+       
+      font-weight: 700
+
+  h2 
+    font-size: px_to_rem(10px)
+    font-family: Inter
+    font-weight: 500
+
+main 
+  display: flex
+  flex-direction: column
+  align-items: center
+  gap: 50px
+
+.form
+  padding: 15px
+  display: flex
+  align-items: center
+  flex-direction: column
+  gap: 15px
+  box-sizing: border-box
+
+  .inputs
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-wrap: wrap
+    gap: 10px
+    width: 100%
+
+    .input-wrapper
+      display: flex
+      flex-direction: column
+      gap: 3.3px
+
+      label
+        color: #374151
+        font-size: px-to-em(14px, 20px)
+        font-weight: 500
+        line-height: px-to-em(16.37px, 20px) 
+
+      .input-text
+        border: 0.82px solid #D1D5DB
+        border-radius: 4.91px
+        padding: 7.37px 0 7.37px 10.64px
+        box-sizing: border-box
+        color: #374151
+        font-size: px-to-em(14px, 20px)
+        font-weight: 400
+        line-height: px-to-em(19.65px, 20px)
+        text-align: left
+        
+      .input-text::placeholder
+        font-size: px-to-em(14px, 20px)
+        font-weight: 400
+        line-height: px-to-em(19.65px, 20px)
+        text-align: left
+  button
+    width: 100%
+    background: linear-gradient(90.41deg, #711F8D 1.14%, #A818DA 100%)
+    border: none
+    border-radius: 5px
+    padding: 5px
+    display: flex
+    gap: 4px
+    justify-content: center
+    align-items: center
+  
+    span
+      font-size: px-to-rem(12px)
+      font-weight: 700
+      line-height: px_to_em(18.7px, 12px)
+      letter-spacing: -0.07em
+      text-align: center
+      color: #FFFFFF
+
+    img
+      width: 1.2rem
+      height: 1.2rem
+
+.meme-wrapper
+  width: 35%
+  position: relative
+  text-align: center
+  img
+    width: 100%
+  .meme-text
+    font-size: 1.75rem
+    color: white
+  #top-text
+    position: absolute
+    top: 20px
+    left: 50%
+    transform: translate(-50%)
+  #bottom-text
+    position: absolute
+    bottom: 20px
+    left: 50%
+    transform: translate(-50%)
+
+
+@media screen and (max-width: 549.9px)
+  header.header
+    height: 48px
+
+@media screen and (min-width: 186px) and (max-width: 424px)
+  .form .inputs .input-wrapper
+    width: 100%
+
+@media screen and (min-width: 425px)
+  .form .inputs
+    display: flex
+    justify-content: space-between
+    .input-wrapper
+      min-width: 190px
+    
+@media screen and (min-width: 550px)
+  .header
+    padding: 20px 29px 19px 29px
+
+    .logo h1
+      font-size: px-to-rem(20px)
+      line-height: px-to-rem(24.25px)
+
+    .logo img
+      width: px-to-rem(31.33px)
+      height: px-to-rem(26.22px)
+
+    h2
+      font-size: px-to-rem(12px)
+
+  .form 
+    padding: 28px 36.5px 0 36.5px
+
+    .inputs
+      gap: 33px 
+
+      .input-wrapper
+        min-width: 222px
+      
+        label 
+          font-size: px-to-rem(14px)
+          line-height: px-to-rem(16.37px) 
+
+        .input-text::placeholder 
+          font-size: px-to-rem(14px)
+          line-height: px-to-rem(19.65px) !important
+
+    button.submit-btn 
+      padding: 10.5px 
+      span
+        font-size: 1rem
+        line-height: px-to-rem(18.7px)
+
+@media screen and (min-width: 768px)
+  html
+    font-size: 20px
+
+    .form 
+      gap: 24px
+
+      .inputs .input-wrapper
+        min-width: 300px
+        gap: 8px
+
+        .input-text
+          padding: 12px 0 12px 15px
+
+      button.submit-btn
+        padding: 14px
+
+@media screen and (min-width: 1024px)
+  html
+    font-size: 24px
+
+    .header
+      padding: 18px 31px 
+
+    .form 
+      gap: 30px
+
+      .inputs .input-wrapper
+        min-width: 400px
+
+        .input-text
+          padding: 17px 15px         
+
+      button.submit-btn
+        padding: 14px
+
+@media screen and (min-width: 1440px)
+  html .form
+    padding: 28px 50px 0
+    width: 100%
+    flex-direction: row
+    gap: 100px
+    align-items: flex-end
+    
+    .inputs
+      gap: 10px
+
+      .input-wrapper
+        min-width: 450px
+    button.submit-btn
+      width: 30%
+
+@media screen and (min-width: 1920px)
+  html
+    font-size: 32px
+
+    .header
+      padding: 22px 35px
+
+    .form 
+      padding: 32px 54px 0
+
+      .inputs .input-wrapper
+        min-width: 600px
+
+      button.submit-btn
+        padding: 12px
+        gap: 12px
